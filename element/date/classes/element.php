@@ -50,7 +50,6 @@ define('CUSTOMCERT_DATE_COURSE_START', '-3');
  * Date - Course end
  */
 define('CUSTOMCERT_DATE_COURSE_END', '-4');
-
 /**
  * Date - Current date
  */
@@ -287,6 +286,8 @@ class element extends \mod_customcert\element {
             'strftimedate',
             'strftimedatefullshort',
             'strftimedatefullshortwleadingzero',
+            'strftimedatefull',
+            'strftimedatefullwleadingzero',
             'strftimedateshort',
             'strftimedatetime',
             'strftimedatetimeshort',
@@ -306,6 +307,8 @@ class element extends \mod_customcert\element {
                 $dateformats[$strdateformat] = userdate($date, get_string('strftimedatefullshort', 'langconfig'), 99, false);
             } else if ($strdateformat == 'strftimedatetimeshortwleadingzero') {
                 $dateformats[$strdateformat] = userdate($date, get_string('strftimedatetimeshort', 'langconfig'), 99, false);
+            } else if ($strdateformat == 'strftimedatefullwleadingzero') {
+                $dateformats[$strdateformat] = userdate($date, get_string('strftimedatefull', 'langconfig'), 99, false);
             } else {
                 $dateformats[$strdateformat] = userdate($date, get_string($strdateformat, 'langconfig'));
             }
@@ -349,6 +352,8 @@ class element extends \mod_customcert\element {
                 $certificatedate = userdate($date, get_string('strftimedatefullshort', 'langconfig'), 99, false);
             } else if ($dateformat == 'strftimedatetimeshortwleadingzero') {
                 $certificatedate = userdate($date, get_string('strftimedatetimeshort', 'langconfig'), 99, false);
+            } else if ($dateformat == 'strftimedatefullwleadingzero') {
+                $certificatedate = userdate($date, get_string('strftimedatefull', 'langconfig'), 99, false);
             } else {
                 $certificatedate = userdate($date, get_string($dateformat, 'langconfig'));
             }
